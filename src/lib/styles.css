@@ -1,0 +1,50 @@
+body {
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.crosshairs {
+  position: fixed;
+  width: 100%;
+  z-index: 2147483645;
+}
+
+.crosshairs::before,
+.crosshairs::after {
+  content: "";
+  position: absolute;
+}
+
+.crosshairs::before {
+  height: 24px;
+  width: 2px;
+  background: #000;
+  top: -11px;
+}
+
+.crosshairs::after {
+  width: 24px;
+  height: 2px;
+  background: #000;
+  left: -11px;
+}
+
+.overlay {
+  position: fixed;
+  z-index: 2147483644;
+}
+
+.overlay.true {
+  border-color: #000;
+  border-style: dashed;
+  border-width: thin;
+}
+
+.crosshairs,
+.crosshairs:before,
+.crosshairs:after,
+.overlay,
+.overlay:before,
+.overlay:after {
+  box-sizing: border-box;
+}
