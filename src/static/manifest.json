@@ -1,22 +1,24 @@
 {
     "manifest_version": 3,
-    "name": "react-boilerplate",
-    "description": "react-boilerplate for chrome extension",
+    "name": "GCDee Testing",
+    "description": "GCDee Testing for chrome extension",
     "version": "1.0.0",
     "action" : {
         "default_popup": "popup.html",
-        "default_title": "React Boilerplate",
+        "default_title": "GCDee Testing",
         "default_icon" : "icon.png"
-    },
-    "chrome_url_overrides": {
-        "newtab": "newTab.html"
     },
     "permissions": [
         "tabs",
         "bookmarks",
         "storage",
         "identity",
-        "activeTab"
+        "activeTab",
+        "scripting"
+    ],
+    "host_permissions": [
+        "http://*/*",
+        "https://*/*"
     ],
     "icons": {
         "16" : "icon.png",
@@ -25,13 +27,12 @@
     },
     "options_page": "options.html",
     "background": {
-        "service_worker": "background.js",
-        "type": "module"
+        "service_worker": "background.js"
     },
     "content_scripts": [
         {
             "matches": ["<all_urls>"],
-            "js": ["contentScript.js"]
+            "js": ["contentScript.js", "extraScript.js"]
         }
     ]
 }

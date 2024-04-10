@@ -1,13 +1,16 @@
 import React from "react";
-import './popup.css'
+import { Routes, Route } from "react-router-dom";
+import "./popup.css";
+import Home from "./components/Home";
+import About from "./components/About";
 
 const Popup = () => {
-    return (
-        <div>
-            <h1 className="text-4xl text-green-500">Hello World</h1>
-            <img src="pika.jpeg" />
-        </div>
-    )
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<About />} />
+    </Routes>
+  );
 };
 
 export default Popup;
