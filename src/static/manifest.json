@@ -1,38 +1,36 @@
 {
-    "manifest_version": 3,
-    "name": "GCDee Testing",
-    "description": "GCDee Testing for chrome extension",
-    "version": "1.0.0",
-    "action" : {
-        "default_popup": "popup.html",
-        "default_title": "GCDee Testing",
-        "default_icon" : "icon.png"
-    },
-    "permissions": [
-        "tabs",
-        "bookmarks",
-        "storage",
-        "identity",
-        "activeTab",
-        "scripting"
-    ],
-    "host_permissions": [
-        "http://*/*",
-        "https://*/*"
-    ],
-    "icons": {
-        "16" : "icon.png",
-        "48" : "icon.png",
-        "128" : "icon.png"
-    },
-    "options_page": "options.html",
-    "background": {
-        "service_worker": "background.js"
-    },
-    "content_scripts": [
-        {
-            "matches": ["<all_urls>"],
-            "js": ["contentScript.js", "extraScript.js"]
-        }
-    ]
+  "manifest_version": 3,
+  "name": "GCDee Testing",
+  "description": "GCDee Testing for chrome extension",
+  "version": "1.0.0",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "GCDee Testing",
+    "default_icon": "icon.png"
+  },
+  "permissions": [
+    "tabs",
+    "bookmarks",
+    "storage",
+    "identity",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": ["http://*/*", "https://*/*"],
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "options_page": "options.html",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["html2canvas.js" ,"contentScript.js", "extraScript.js"],
+      "css": ["extraCss.css"]
+    }
+  ]
 }

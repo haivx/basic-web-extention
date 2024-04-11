@@ -1,6 +1,8 @@
 const path = require('path');
+const HtmlWebpackInjectPlugin = require('html-webpack-inject-plugin').default
 const CopyPlugin = require('copy-webpack-plugin');
 const HtmlPlugin = require('html-webpack-plugin');
+
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const tailwindcss = require('tailwindcss')
 const autoprefixer = require('autoprefixer')
@@ -61,8 +63,17 @@ module.exports = {
         ...getHtmlPlugins([
             'popup',
             'options',
-            // 'newTab'
-        ])
+        ]),
+        new HtmlWebpackInjectPlugin({
+            externals: [
+                {
+                  tagName: 'script',
+                  attributes: {
+                    src: 'html2canvas.js',
+                    type: 'text/javascript'
+                  }
+                }]
+        })
     ],
     resolve: {
         extensions: ['.tsx', '.js', '.ts']
